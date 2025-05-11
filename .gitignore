@@ -1,6 +1,8 @@
 .vs/
 out/
 
+CMakeUserPresets.json
+
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
