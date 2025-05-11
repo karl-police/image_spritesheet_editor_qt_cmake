@@ -22,12 +22,12 @@ project ("image_spritesheet_editor_qt")
 #set(CMAKE_AUTORCC ON)
 #set(CMAKE_AUTOUIC ON)
 
-set(Qt5_PATH "D:\\Programme\\Qt\\5.15.2\\msvc2019_64")
+set(Qt_PATH "D:\\Programme\\Qt\\6.9.0\\msvc2022_64")
 
-list(APPEND CMAKE_PREFIX_PATH "${Qt5_PATH}")
-#list(APPEND CMAKE_PREFIX_PATH "${Qt5_PATH}/lib/cmake")
+list(APPEND CMAKE_PREFIX_PATH "${Qt_PATH}")
+#list(APPEND CMAKE_PREFIX_PATH "${Qt_PATH}/lib/cmake")
 
-find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets Network)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Network)
 
 
 # Make this a GUI application on Windows
@@ -53,8 +53,8 @@ add_subdirectory("src")
 
 # Add tests and install targets if needed.
 
-# Add Qt5 for linking
-target_link_libraries(image_spritesheet_editor_qt Qt5::Core Qt5::Widgets Qt5::Gui)
+# Add Qt for linking
+target_link_libraries(image_spritesheet_editor_qt Qt6::Core Qt6::Widgets Qt6::Gui)
 
 message(CMAKE_BINARY_DIR="${CMAKE_BINARY_DIR}")
 
@@ -64,5 +64,5 @@ add_custom_command(
 	TARGET image_spritesheet_editor_qt
 	POST_BUILD
 	COMMAND
-	 ${Qt5_PATH}/bin/windeployqt.exe "${CMAKE_BINARY_DIR}/image_spritesheet_editor_qt.exe" --no-compiler-runtime
+	 ${Qt_PATH}/bin/windeployqt.exe "${CMAKE_BINARY_DIR}/image_spritesheet_editor_qt.exe" --no-compiler-runtime
 )
