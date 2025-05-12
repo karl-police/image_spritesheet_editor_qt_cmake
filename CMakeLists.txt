@@ -3,6 +3,9 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
+#include(qt.cmake)
+
+
 project ("image_spritesheet_editor_qt")
 
 
@@ -22,7 +25,17 @@ project ("image_spritesheet_editor_qt")
 #set(CMAKE_AUTORCC ON)
 #set(CMAKE_AUTOUIC ON)
 
-set(Qt_PATH "D:\\Programme\\Qt\\6.9.0\\msvc2022_64")
+
+# Qt_PATH
+if(DEFINED $ENV{Qt_PATH})
+	set(Qt_PATH $ENV{Qt_PATH})
+else()
+	# cacheVariables in CMakePresets.json
+	set(Qt_PATH $CACHE{Qt_PATH})
+endif()
+
+message( "Qt_PATH: " ${Qt_PATH} )
+
 
 list(APPEND CMAKE_PREFIX_PATH "${Qt_PATH}")
 #list(APPEND CMAKE_PREFIX_PATH "${Qt_PATH}/lib/cmake")
@@ -39,7 +52,7 @@ endif()
 
 
 # Add source to this project's executable.
-add_executable (image_spritesheet_editor_qt "src/MainApp.cpp" "src/MainApp.h")
+add_executable (image_spritesheet_editor_qt "src/MainApp.cpp" "src/MainApp.h" )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET image_spritesheet_editor_qt PROPERTY CXX_STANDARD 20)

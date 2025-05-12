@@ -9,9 +9,10 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    QApplication a(argc, argv);
-    QMainWindow w;
-    w.show();
+    QApplication app(argc, argv);
 
-    return a.exec();
+    QMainWindow mainWindow;
+    mainWindow.show();
+
+    return app.exec();
 }

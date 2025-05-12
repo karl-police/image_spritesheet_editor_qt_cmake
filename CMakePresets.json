@@ -2,8 +2,18 @@
   "version": 3,
   "configurePresets": [
     {
+      "name": "user-local",
+      "hidden": true,
+      "cacheVariables": {
+        "Qt_PATH": "D:/Programme/Qt/6.9.0/msvc2022_64"
+      }
+    },
+    {
       "name": "windows-base",
       "hidden": true,
+      "inherits": [
+        "user-local"
+      ],
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/out/build/${presetName}",
       "installDir": "${sourceDir}/out/install/${presetName}",
@@ -72,7 +82,7 @@
   ],
   "vendor": {
     "qt-project.org/Presets": {
-      "checksum": "3X4OR/s/mbcMi2DfD7pbar+UZVg="
+      "checksum": "YNNcMbEetG2oWRNkG+eLDrdIRtw="
     }
   }
 }
