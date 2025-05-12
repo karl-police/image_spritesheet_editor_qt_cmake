@@ -1,7 +1,7 @@
 ﻿// MainApp.cpp : Defines the entry point for the application.
 //
 
-#include "MainApp.hpp"
+#include "MainApp.h"
 #include <QApplication>
 #include <QMainWindow>
 

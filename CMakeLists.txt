@@ -39,7 +39,7 @@ endif()
 
 
 # Add source to this project's executable.
-add_executable (image_spritesheet_editor_qt "src/MainApp.cpp" "src/MainApp.hpp")
+add_executable (image_spritesheet_editor_qt "src/MainApp.cpp" "src/MainApp.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET image_spritesheet_editor_qt PROPERTY CXX_STANDARD 20)
