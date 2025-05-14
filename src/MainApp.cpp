@@ -5,6 +5,8 @@
 #include <QApplication>
 #include <QMainWindow>
 
+//#include "resources/ui_MainWindow.h"
+
 using namespace std;
 
 int main(int argc, char* argv[])

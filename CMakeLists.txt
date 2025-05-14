@@ -23,14 +23,16 @@ project ("image_spritesheet_editor_qt")
 # Qt
 #set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTORCC ON)
+# Tells CMake to run the uic tool to create a ui_*.h files that can be used by the source files.
 #set(CMAKE_AUTOUIC ON)
+
 
 
 # Qt_PATH
 if(DEFINED $ENV{Qt_PATH})
 	set(Qt_PATH $ENV{Qt_PATH})
 else()
-	# cacheVariables in CMakePresets.json
+	# cacheVariables is in CMakePresets.json
 	set(Qt_PATH $CACHE{Qt_PATH})
 endif()
 
@@ -50,14 +52,7 @@ if(WIN32)
 endif()
 
 
-
-# Add source to this project's executable.
-add_executable (image_spritesheet_editor_qt "src/MainApp.cpp" "src/MainApp.h" )
-
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET image_spritesheet_editor_qt PROPERTY CXX_STANDARD 20)
-endif()
-
+qt_standard_project_setup()
 
 
 # Include sub-projects.
@@ -66,16 +61,5 @@ add_subdirectory("src")
 
 # Add tests and install targets if needed.
 
-# Add Qt for linking
-target_link_libraries(image_spritesheet_editor_qt Qt6::Core Qt6::Widgets Qt6::Gui)
 
 message(CMAKE_BINARY_DIR="${CMAKE_BINARY_DIR}")
-
-
-# Special build
-add_custom_command(
-	TARGET image_spritesheet_editor_qt
-	POST_BUILD
-	COMMAND
-	 ${Qt_PATH}/bin/windeployqt.exe "${CMAKE_BINARY_DIR}/image_spritesheet_editor_qt.exe" --no-compiler-runtime
-)
