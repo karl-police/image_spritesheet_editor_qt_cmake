@@ -13,8 +13,8 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
 endif()
 
 
-
-#target_include_directories(image_spritesheet_editor_qt PRIVATE "../include")
+# Generated ui files
+target_include_directories(image_spritesheet_editor_qt PRIVATE "../out/ui")
 
 
 
