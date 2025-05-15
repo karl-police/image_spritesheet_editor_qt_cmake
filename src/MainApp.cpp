@@ -5,7 +5,7 @@
 #include <QApplication>
 #include <QMainWindow>
 
-//#include "resources/ui_MainWindow.h"
+//#include "generated/ui_MainWindow.h"
 
 using namespace std;
 
